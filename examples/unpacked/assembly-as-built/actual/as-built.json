@@ -1,0 +1,1487 @@
+{
+  "schemaVersion": "0.1.0-draft.1",
+  "id": "actual-pair-0001",
+  "designSnapshot": {
+    "designId": "design-pair-a",
+    "designResourceId": "res-design",
+    "sha256": "3c5c9e19986204ed0e422c5e7d1b0080f86ba489ba8bc5127f943d579e4b5332",
+    "sourcePackageId": "urn:uuid:6806117a-96c7-5e63-9ab0-9c2512d27d1a"
+  },
+  "recordedAt": "2026-10-02T18:00:00-04:00",
+  "recordStatus": "review",
+  "subjects": [
+    {
+      "id": "physical-pair",
+      "kind": "instance",
+      "productDefinitionId": "def-pair-a",
+      "occurrencePath": [],
+      "serialNumber": "PAIR-0001",
+      "manufacturerActorId": "actual-company"
+    },
+    {
+      "id": "physical-left-module",
+      "kind": "instance",
+      "productDefinitionId": "def-module-a",
+      "occurrencePath": [
+        "occ-left"
+      ],
+      "parentSubjectId": "physical-pair",
+      "serialNumber": "MODULE-LEFT-0001",
+      "manufacturerActorId": "actual-company"
+    },
+    {
+      "id": "physical-right-module",
+      "kind": "instance",
+      "productDefinitionId": "def-module-a",
+      "occurrencePath": [
+        "occ-right"
+      ],
+      "parentSubjectId": "physical-pair",
+      "serialNumber": "MODULE-RIGHT-0001",
+      "manufacturerActorId": "actual-company"
+    },
+    {
+      "id": "physical-left-block",
+      "kind": "instance",
+      "productDefinitionId": "def-block-a",
+      "occurrencePath": [
+        "occ-left",
+        "occ-block"
+      ],
+      "parentSubjectId": "physical-left-module",
+      "serialNumber": "BLOCK-LEFT-0001",
+      "lotNumber": "LOT-2026-001",
+      "manufacturerActorId": "actual-company",
+      "manufacturedAt": "2026-10-01T09:00:00-04:00"
+    },
+    {
+      "id": "physical-right-block",
+      "kind": "instance",
+      "productDefinitionId": "def-block-a",
+      "occurrencePath": [
+        "occ-right",
+        "occ-block"
+      ],
+      "parentSubjectId": "physical-right-module",
+      "serialNumber": "BLOCK-RIGHT-0001",
+      "lotNumber": "LOT-2026-001",
+      "manufacturerActorId": "actual-company",
+      "manufacturedAt": "2026-10-01T13:00:00-04:00"
+    }
+  ],
+  "actors": [
+    {
+      "id": "actual-company",
+      "kind": "organization",
+      "name": "OPP Synthetic Manufacturing Company",
+      "address": "Example Site; no actual supplier identity",
+      "supplierCode": "SYNTH-01"
+    },
+    {
+      "id": "actual-calibration-company",
+      "kind": "organization",
+      "name": "Synthetic Calibration Organization"
+    },
+    {
+      "id": "actual-operator",
+      "kind": "person",
+      "name": "Operator Example-01",
+      "organizationId": "actual-company"
+    },
+    {
+      "id": "actual-inspector",
+      "kind": "person",
+      "name": "Inspector Example-02",
+      "organizationId": "actual-company"
+    },
+    {
+      "id": "actual-quality",
+      "kind": "person",
+      "name": "Quality Example-03",
+      "organizationId": "actual-company"
+    }
+  ],
+  "productionCells": [
+    {
+      "id": "cell-cnc-01",
+      "name": "CNC Cell 01",
+      "organizationId": "actual-company",
+      "site": "Example Site",
+      "line": "Example Line A"
+    }
+  ],
+  "equipment": [
+    {
+      "id": "equipment-cnc",
+      "kind": "production-machine",
+      "manufacturer": "Synthetic Equipment Vendor",
+      "model": "Example cnc",
+      "serialNumber": "SYNTH-CNC-01",
+      "organizationId": "actual-company",
+      "softwareVersion": "demo-1.0",
+      "firmwareVersion": "demo-1.0",
+      "resolutions": [
+        {
+          "value": "0.01",
+          "unit": "mm"
+        }
+      ],
+      "operatingRanges": [
+        {
+          "unit": "mm",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "0",
+          "upper": "100"
+        }
+      ]
+    },
+    {
+      "id": "equipment-cmm",
+      "kind": "measurement",
+      "manufacturer": "Synthetic Equipment Vendor",
+      "model": "Example cmm",
+      "serialNumber": "SYNTH-CMM-01",
+      "organizationId": "actual-company",
+      "softwareVersion": "demo-1.0",
+      "firmwareVersion": "demo-1.0",
+      "resolutions": [
+        {
+          "value": "0.001",
+          "unit": "mm"
+        }
+      ],
+      "operatingRanges": [
+        {
+          "unit": "mm",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "0",
+          "upper": "100"
+        }
+      ]
+    },
+    {
+      "id": "equipment-texture",
+      "kind": "measurement",
+      "manufacturer": "Synthetic Equipment Vendor",
+      "model": "Example texture",
+      "serialNumber": "SYNTH-TEXTURE-01",
+      "organizationId": "actual-company",
+      "softwareVersion": "demo-1.0",
+      "firmwareVersion": "demo-1.0",
+      "resolutions": [
+        {
+          "value": "0.01",
+          "unit": "um"
+        }
+      ],
+      "operatingRanges": [
+        {
+          "unit": "um",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "0",
+          "upper": "100"
+        }
+      ]
+    },
+    {
+      "id": "equipment-scanner",
+      "kind": "measurement",
+      "manufacturer": "Synthetic Equipment Vendor",
+      "model": "Example scanner",
+      "serialNumber": "SYNTH-SCANNER-01",
+      "organizationId": "actual-company",
+      "softwareVersion": "demo-1.0",
+      "firmwareVersion": "demo-1.0",
+      "resolutions": [
+        {
+          "value": "0.01",
+          "unit": "mm"
+        }
+      ],
+      "operatingRanges": [
+        {
+          "unit": "mm",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "0",
+          "upper": "100"
+        }
+      ]
+    },
+    {
+      "id": "equipment-rig",
+      "kind": "test-rig",
+      "manufacturer": "Synthetic Equipment Vendor",
+      "model": "Example rig",
+      "serialNumber": "SYNTH-RIG-01",
+      "organizationId": "actual-company",
+      "softwareVersion": "demo-1.0",
+      "firmwareVersion": "demo-1.0",
+      "resolutions": [
+        {
+          "value": "0.001",
+          "unit": "mm"
+        }
+      ],
+      "operatingRanges": [
+        {
+          "unit": "mm",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "0",
+          "upper": "100"
+        }
+      ]
+    }
+  ],
+  "calibrations": [
+    {
+      "id": "calibration-cmm",
+      "equipmentId": "equipment-cmm",
+      "calibratedAt": "2026-01-01T00:00:00Z",
+      "validUntil": "2027-01-01T00:00:00Z",
+      "organizationId": "actual-calibration-company",
+      "certificateResourceId": "res-calibration",
+      "traceability": [
+        "Synthetic illustrative reference; no real metrological traceability asserted"
+      ],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      },
+      "status": "valid"
+    },
+    {
+      "id": "calibration-texture",
+      "equipmentId": "equipment-texture",
+      "calibratedAt": "2026-01-01T00:00:00Z",
+      "validUntil": "2027-01-01T00:00:00Z",
+      "organizationId": "actual-calibration-company",
+      "certificateResourceId": "res-calibration",
+      "traceability": [
+        "Synthetic illustrative reference; no real metrological traceability asserted"
+      ],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.05",
+          "unit": "um"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      },
+      "status": "valid"
+    },
+    {
+      "id": "calibration-scanner",
+      "equipmentId": "equipment-scanner",
+      "calibratedAt": "2026-01-01T00:00:00Z",
+      "validUntil": "2027-01-01T00:00:00Z",
+      "organizationId": "actual-calibration-company",
+      "certificateResourceId": "res-calibration",
+      "traceability": [
+        "Synthetic illustrative reference; no real metrological traceability asserted"
+      ],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      },
+      "status": "valid"
+    },
+    {
+      "id": "calibration-rig",
+      "equipmentId": "equipment-rig",
+      "calibratedAt": "2026-01-01T00:00:00Z",
+      "validUntil": "2027-01-01T00:00:00Z",
+      "organizationId": "actual-calibration-company",
+      "certificateResourceId": "res-calibration",
+      "traceability": [
+        "Synthetic illustrative reference; no real metrological traceability asserted"
+      ],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      },
+      "status": "valid"
+    }
+  ],
+  "materialLots": [
+    {
+      "id": "material-lot-01",
+      "materialDefinitionId": "material-aluminum",
+      "lotNumber": "AL-2026-001",
+      "heatNumber": "HEAT-001",
+      "batchNumber": "BATCH-001",
+      "supplierActorId": "actual-company",
+      "certificateResourceIds": [
+        "res-material-certificate"
+      ],
+      "subjectIds": [
+        "physical-left-block",
+        "physical-right-block"
+      ],
+      "parentMaterialLotIds": []
+    }
+  ],
+  "productionEvents": [
+    {
+      "id": "left-event-machining",
+      "subjectIds": [
+        "physical-left-block"
+      ],
+      "processFamily": "machining",
+      "name": "Synthetic machining operation",
+      "startedAt": "2026-10-01T08:00:00-04:00",
+      "endedAt": "2026-10-01T09:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-operator"
+      ],
+      "cellId": "cell-cnc-01",
+      "equipmentIds": [
+        "equipment-cnc"
+      ],
+      "materialLotIds": [
+        "material-lot-01"
+      ],
+      "parameters": [
+        {
+          "name": "spindle speed",
+          "text": "Illustrative supplier-selected setting recorded in actual history"
+        }
+      ],
+      "evidenceResourceIds": []
+    },
+    {
+      "id": "right-event-machining",
+      "subjectIds": [
+        "physical-right-block"
+      ],
+      "processFamily": "machining",
+      "name": "Synthetic machining operation",
+      "startedAt": "2026-10-01T12:00:00-04:00",
+      "endedAt": "2026-10-01T13:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-operator"
+      ],
+      "cellId": "cell-cnc-01",
+      "equipmentIds": [
+        "equipment-cnc"
+      ],
+      "materialLotIds": [
+        "material-lot-01"
+      ],
+      "parameters": [
+        {
+          "name": "spindle speed",
+          "text": "Illustrative supplier-selected setting recorded in actual history"
+        }
+      ],
+      "evidenceResourceIds": []
+    }
+  ],
+  "runs": [
+    {
+      "id": "left-run-dimensions",
+      "kind": "inspection",
+      "subjectIds": [
+        "physical-left-block"
+      ],
+      "startedAt": "2026-10-01T10:00:00-04:00",
+      "endedAt": "2026-10-01T11:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-inspector"
+      ],
+      "equipmentIds": [
+        "equipment-cmm",
+        "equipment-texture"
+      ],
+      "calibrationIds": [
+        "calibration-cmm",
+        "calibration-texture"
+      ],
+      "method": "Synthetic CMM and texture report",
+      "conditions": [
+        {
+          "name": "temperature",
+          "quantity": {
+            "value": "20",
+            "unit": "Cel"
+          }
+        }
+      ],
+      "sampling": {
+        "strategy": "single",
+        "populationCount": 1,
+        "sampleCount": 1
+      }
+    },
+    {
+      "id": "left-run-review",
+      "kind": "material-review",
+      "subjectIds": [
+        "physical-left-block"
+      ],
+      "startedAt": "2026-10-01T11:00:00-04:00",
+      "endedAt": "2026-10-01T12:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-inspector"
+      ],
+      "equipmentIds": [],
+      "calibrationIds": [],
+      "method": "Synthetic certificate and visual review",
+      "conditions": [
+        {
+          "name": "temperature",
+          "quantity": {
+            "value": "20",
+            "unit": "Cel"
+          }
+        }
+      ],
+      "sampling": {
+        "strategy": "single",
+        "populationCount": 1,
+        "sampleCount": 1
+      }
+    },
+    {
+      "id": "left-run-test",
+      "kind": "test",
+      "subjectIds": [
+        "physical-left-block"
+      ],
+      "startedAt": "2026-10-01T12:00:00-04:00",
+      "endedAt": "2026-10-01T13:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-inspector"
+      ],
+      "equipmentIds": [
+        "equipment-rig"
+      ],
+      "calibrationIds": [
+        "calibration-rig"
+      ],
+      "method": "Synthetic compression fixture test",
+      "conditions": [
+        {
+          "name": "temperature",
+          "quantity": {
+            "value": "20",
+            "unit": "Cel"
+          }
+        }
+      ],
+      "sampling": {
+        "strategy": "single",
+        "populationCount": 1,
+        "sampleCount": 1
+      },
+      "procedureResourceId": "res-proof-procedure"
+    },
+    {
+      "id": "left-run-scan",
+      "kind": "scan",
+      "subjectIds": [
+        "physical-left-block"
+      ],
+      "startedAt": "2026-10-01T13:00:00-04:00",
+      "endedAt": "2026-10-01T14:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-inspector"
+      ],
+      "equipmentIds": [
+        "equipment-scanner"
+      ],
+      "calibrationIds": [
+        "calibration-scanner"
+      ],
+      "method": "Synthetic corner sampling and datum alignment",
+      "conditions": [
+        {
+          "name": "temperature",
+          "quantity": {
+            "value": "20",
+            "unit": "Cel"
+          }
+        }
+      ],
+      "sampling": {
+        "strategy": "single",
+        "populationCount": 1,
+        "sampleCount": 1
+      }
+    },
+    {
+      "id": "right-run-dimensions",
+      "kind": "inspection",
+      "subjectIds": [
+        "physical-right-block"
+      ],
+      "startedAt": "2026-10-01T14:00:00-04:00",
+      "endedAt": "2026-10-01T15:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-inspector"
+      ],
+      "equipmentIds": [
+        "equipment-cmm",
+        "equipment-texture"
+      ],
+      "calibrationIds": [
+        "calibration-cmm",
+        "calibration-texture"
+      ],
+      "method": "Synthetic CMM and texture report",
+      "conditions": [
+        {
+          "name": "temperature",
+          "quantity": {
+            "value": "20",
+            "unit": "Cel"
+          }
+        }
+      ],
+      "sampling": {
+        "strategy": "single",
+        "populationCount": 1,
+        "sampleCount": 1
+      }
+    },
+    {
+      "id": "right-run-review",
+      "kind": "material-review",
+      "subjectIds": [
+        "physical-right-block"
+      ],
+      "startedAt": "2026-10-01T15:00:00-04:00",
+      "endedAt": "2026-10-01T16:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-inspector"
+      ],
+      "equipmentIds": [],
+      "calibrationIds": [],
+      "method": "Synthetic certificate and visual review",
+      "conditions": [
+        {
+          "name": "temperature",
+          "quantity": {
+            "value": "20",
+            "unit": "Cel"
+          }
+        }
+      ],
+      "sampling": {
+        "strategy": "single",
+        "populationCount": 1,
+        "sampleCount": 1
+      }
+    },
+    {
+      "id": "right-run-test",
+      "kind": "test",
+      "subjectIds": [
+        "physical-right-block"
+      ],
+      "startedAt": "2026-10-01T16:00:00-04:00",
+      "endedAt": "2026-10-01T17:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-inspector"
+      ],
+      "equipmentIds": [
+        "equipment-rig"
+      ],
+      "calibrationIds": [
+        "calibration-rig"
+      ],
+      "method": "Synthetic compression fixture test",
+      "conditions": [
+        {
+          "name": "temperature",
+          "quantity": {
+            "value": "20",
+            "unit": "Cel"
+          }
+        }
+      ],
+      "sampling": {
+        "strategy": "single",
+        "populationCount": 1,
+        "sampleCount": 1
+      },
+      "procedureResourceId": "res-proof-procedure"
+    },
+    {
+      "id": "right-run-scan",
+      "kind": "scan",
+      "subjectIds": [
+        "physical-right-block"
+      ],
+      "startedAt": "2026-10-01T17:00:00-04:00",
+      "endedAt": "2026-10-01T18:00:00-04:00",
+      "organizationId": "actual-company",
+      "operatorActorIds": [
+        "actual-inspector"
+      ],
+      "equipmentIds": [
+        "equipment-scanner"
+      ],
+      "calibrationIds": [
+        "calibration-scanner"
+      ],
+      "method": "Synthetic corner sampling and datum alignment",
+      "conditions": [
+        {
+          "name": "temperature",
+          "quantity": {
+            "value": "20",
+            "unit": "Cel"
+          }
+        }
+      ],
+      "sampling": {
+        "strategy": "single",
+        "populationCount": 1,
+        "sampleCount": 1
+      }
+    }
+  ],
+  "observations": [
+    {
+      "id": "left-observation-length",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-length",
+      "stateId": "state-block-finished",
+      "runId": "left-run-dimensions",
+      "observedAt": "2026-10-01T10:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "40.010",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "left-observation-width",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-width",
+      "stateId": "state-block-finished",
+      "runId": "left-run-dimensions",
+      "observedAt": "2026-10-01T10:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "20.002",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "left-observation-height",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-height",
+      "stateId": "state-block-finished",
+      "runId": "left-run-dimensions",
+      "observedAt": "2026-10-01T10:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "10.002",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "left-observation-top-flatness",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-top-flatness",
+      "stateId": "state-block-finished",
+      "runId": "left-run-dimensions",
+      "observedAt": "2026-10-01T10:00:00-04:00",
+      "characteristicPath": "/spec/segments/0/tolerance",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "0.008",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "left-observation-top-texture",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-top-texture",
+      "stateId": "state-block-finished",
+      "runId": "left-run-dimensions",
+      "observedAt": "2026-10-01T10:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "0.6",
+          "unit": "um"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.05",
+          "unit": "um"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "left-observation-material",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-material",
+      "stateId": "state-block-finished",
+      "runId": "left-run-review",
+      "observedAt": "2026-10-01T11:00:00-04:00",
+      "characteristicPath": "/spec/materialDefinitionId",
+      "value": {
+        "kind": "text",
+        "text": "6061-T6 certificate reviewed"
+      },
+      "evidenceResourceIds": [
+        "res-material-certificate"
+      ]
+    },
+    {
+      "id": "left-observation-marking",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-marking",
+      "stateId": "state-block-finished",
+      "runId": "left-run-review",
+      "observedAt": "2026-10-01T11:00:00-04:00",
+      "characteristicPath": "/spec/fields",
+      "value": {
+        "kind": "boolean",
+        "boolean": true
+      },
+      "evidenceResourceIds": []
+    },
+    {
+      "id": "left-observation-proof-deflection",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-proof-deflection",
+      "stateId": "state-block-finished",
+      "runId": "left-run-test",
+      "observedAt": "2026-10-01T12:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "0.040",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [
+        "res-test"
+      ],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "right-observation-length",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-length",
+      "stateId": "state-block-finished",
+      "runId": "right-run-dimensions",
+      "observedAt": "2026-10-01T14:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "40.010",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "right-observation-width",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-width",
+      "stateId": "state-block-finished",
+      "runId": "right-run-dimensions",
+      "observedAt": "2026-10-01T14:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "20.060",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "right-observation-height",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-height",
+      "stateId": "state-block-finished",
+      "runId": "right-run-dimensions",
+      "observedAt": "2026-10-01T14:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "10.002",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "right-observation-top-flatness",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-top-flatness",
+      "stateId": "state-block-finished",
+      "runId": "right-run-dimensions",
+      "observedAt": "2026-10-01T14:00:00-04:00",
+      "characteristicPath": "/spec/segments/0/tolerance",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "0.008",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "right-observation-top-texture",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-top-texture",
+      "stateId": "state-block-finished",
+      "runId": "right-run-dimensions",
+      "observedAt": "2026-10-01T14:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "0.6",
+          "unit": "um"
+        }
+      },
+      "evidenceResourceIds": [],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.05",
+          "unit": "um"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    },
+    {
+      "id": "right-observation-material",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-material",
+      "stateId": "state-block-finished",
+      "runId": "right-run-review",
+      "observedAt": "2026-10-01T15:00:00-04:00",
+      "characteristicPath": "/spec/materialDefinitionId",
+      "value": {
+        "kind": "text",
+        "text": "6061-T6 certificate reviewed"
+      },
+      "evidenceResourceIds": [
+        "res-material-certificate"
+      ]
+    },
+    {
+      "id": "right-observation-marking",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-marking",
+      "stateId": "state-block-finished",
+      "runId": "right-run-review",
+      "observedAt": "2026-10-01T15:00:00-04:00",
+      "characteristicPath": "/spec/fields",
+      "value": {
+        "kind": "boolean",
+        "boolean": true
+      },
+      "evidenceResourceIds": []
+    },
+    {
+      "id": "right-observation-proof-deflection",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-proof-deflection",
+      "stateId": "state-block-finished",
+      "runId": "right-run-test",
+      "observedAt": "2026-10-01T16:00:00-04:00",
+      "characteristicPath": "/spec/limits",
+      "value": {
+        "kind": "scalar",
+        "quantity": {
+          "value": "0.040",
+          "unit": "mm"
+        }
+      },
+      "evidenceResourceIds": [
+        "res-test"
+      ],
+      "uncertainty": {
+        "expanded": {
+          "value": "0.002",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      }
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "left-evaluation-length",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-length",
+      "observationIds": [
+        "left-observation-length"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "left-evaluation-width",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-width",
+      "observationIds": [
+        "left-observation-width"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic in-limit width result"
+    },
+    {
+      "id": "left-evaluation-height",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-height",
+      "observationIds": [
+        "left-observation-height"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "left-evaluation-top-flatness",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-top-flatness",
+      "observationIds": [
+        "left-observation-top-flatness"
+      ],
+      "decisionRuleId": "rule-manual",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "left-evaluation-top-texture",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-top-texture",
+      "observationIds": [
+        "left-observation-top-texture"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "left-evaluation-material",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-material",
+      "observationIds": [
+        "left-observation-material"
+      ],
+      "decisionRuleId": "rule-manual",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "left-evaluation-marking",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-marking",
+      "observationIds": [
+        "left-observation-marking"
+      ],
+      "decisionRuleId": "rule-manual",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "left-evaluation-proof-deflection",
+      "subjectId": "physical-left-block",
+      "requirementId": "req-proof-deflection",
+      "observationIds": [
+        "left-observation-proof-deflection"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "right-evaluation-length",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-length",
+      "observationIds": [
+        "right-observation-length"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "right-evaluation-width",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-width",
+      "observationIds": [
+        "right-observation-width"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "fail",
+      "disposition": "accepted-under-deviation",
+      "rationale": "Synthetic approved width concession retains the original failed measurement",
+      "deviationId": "right-deviation-width"
+    },
+    {
+      "id": "right-evaluation-height",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-height",
+      "observationIds": [
+        "right-observation-height"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "right-evaluation-top-flatness",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-top-flatness",
+      "observationIds": [
+        "right-observation-top-flatness"
+      ],
+      "decisionRuleId": "rule-manual",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "right-evaluation-top-texture",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-top-texture",
+      "observationIds": [
+        "right-observation-top-texture"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "right-evaluation-material",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-material",
+      "observationIds": [
+        "right-observation-material"
+      ],
+      "decisionRuleId": "rule-manual",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "right-evaluation-marking",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-marking",
+      "observationIds": [
+        "right-observation-marking"
+      ],
+      "decisionRuleId": "rule-manual",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    },
+    {
+      "id": "right-evaluation-proof-deflection",
+      "subjectId": "physical-right-block",
+      "requirementId": "req-proof-deflection",
+      "observationIds": [
+        "right-observation-proof-deflection"
+      ],
+      "decisionRuleId": "rule-simple",
+      "evaluatedAt": "2026-10-02T16:00:00-04:00",
+      "evaluatorActorId": "actual-quality",
+      "conformance": "pass",
+      "disposition": "accepted",
+      "rationale": "Synthetic reported result; engineering interpretation/authenticity is not certified"
+    }
+  ],
+  "scans": [
+    {
+      "id": "left-scan-block",
+      "subjectIds": [
+        "physical-left-block"
+      ],
+      "runId": "left-run-scan",
+      "resourceId": "res-scan-left",
+      "dataClass": "point-cloud",
+      "capturedAt": "2026-10-01T13:00:00-04:00",
+      "equipmentId": "equipment-scanner",
+      "unit": "mm",
+      "registration": {
+        "method": "datum-system",
+        "designFrameId": "frame-block",
+        "datumSystemId": "datum-system-a",
+        "transform": {
+          "translation": [
+            "0",
+            "0",
+            "0"
+          ],
+          "translationUnit": "mm",
+          "rotation": [
+            "1",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        },
+        "fitResidual": {
+          "value": "0.010",
+          "unit": "mm"
+        }
+      },
+      "uncertainty": {
+        "expanded": {
+          "value": "0.020",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      },
+      "description": "Separate synthetic left-block corner points; not complete surface coverage"
+    },
+    {
+      "id": "right-scan-block",
+      "subjectIds": [
+        "physical-right-block"
+      ],
+      "runId": "right-run-scan",
+      "resourceId": "res-scan",
+      "dataClass": "point-cloud",
+      "capturedAt": "2026-10-01T17:00:00-04:00",
+      "equipmentId": "equipment-scanner",
+      "unit": "mm",
+      "registration": {
+        "method": "datum-system",
+        "designFrameId": "frame-block",
+        "datumSystemId": "datum-system-a",
+        "transform": {
+          "translation": [
+            "0",
+            "0",
+            "0"
+          ],
+          "translationUnit": "mm",
+          "rotation": [
+            "1",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        },
+        "fitResidual": {
+          "value": "0.010",
+          "unit": "mm"
+        }
+      },
+      "uncertainty": {
+        "expanded": {
+          "value": "0.020",
+          "unit": "mm"
+        },
+        "coverageFactor": "2",
+        "confidencePercent": "95",
+        "method": "Synthetic illustrative budget; not a traceable real measurement"
+      },
+      "description": "Separate synthetic right-block corner points; not complete surface coverage"
+    }
+  ],
+  "deviations": [
+    {
+      "id": "right-deviation-width",
+      "subjectIds": [
+        "physical-right-block"
+      ],
+      "requirementIds": [
+        "req-width"
+      ],
+      "description": "Synthetic width 20.060 exceeds 20.050; approved use as is for this one instance",
+      "disposition": "use-as-is",
+      "approvalIds": [
+        "right-approval-deviation"
+      ],
+      "approvedAt": "2026-10-02T15:00:00-04:00",
+      "expiresAt": "2026-12-31T23:59:59Z",
+      "quantityLimit": 1,
+      "evidenceResourceIds": []
+    }
+  ],
+  "faiReports": [
+    {
+      "id": "fai-pair",
+      "type": "full",
+      "status": "complete",
+      "subjectIds": [
+        "physical-pair",
+        "physical-left-module",
+        "physical-right-module",
+        "physical-left-block",
+        "physical-right-block"
+      ],
+      "requirementIds": [
+        "req-length",
+        "req-width",
+        "req-height",
+        "req-top-flatness",
+        "req-top-texture",
+        "req-material",
+        "req-marking",
+        "req-proof-deflection"
+      ],
+      "evaluationIds": [
+        "left-evaluation-length",
+        "left-evaluation-width",
+        "left-evaluation-height",
+        "left-evaluation-top-flatness",
+        "left-evaluation-top-texture",
+        "left-evaluation-material",
+        "left-evaluation-marking",
+        "left-evaluation-proof-deflection",
+        "right-evaluation-length",
+        "right-evaluation-width",
+        "right-evaluation-height",
+        "right-evaluation-top-flatness",
+        "right-evaluation-top-texture",
+        "right-evaluation-material",
+        "right-evaluation-marking",
+        "right-evaluation-proof-deflection"
+      ],
+      "materialLotIds": [
+        "material-lot-01"
+      ],
+      "productionEventIds": [
+        "left-event-machining",
+        "right-event-machining"
+      ],
+      "deviationIds": [
+        "right-deviation-width"
+      ],
+      "approvalIds": [
+        "left-approval-fai",
+        "right-approval-fai"
+      ],
+      "reportResourceIds": []
+    }
+  ],
+  "approvals": [
+    {
+      "id": "left-approval-fai",
+      "actorId": "actual-quality",
+      "organizationId": "actual-company",
+      "role": "quality-authority",
+      "approvedAt": "2026-10-02T17:00:00-04:00",
+      "statement": "Synthetic approval of the accountability example only; not AS9102 certification",
+      "evidenceResourceIds": []
+    },
+    {
+      "id": "right-approval-deviation",
+      "actorId": "actual-quality",
+      "organizationId": "actual-company",
+      "role": "quality-authority",
+      "approvedAt": "2026-10-02T15:00:00-04:00",
+      "statement": "Synthetic use-as-is approval for req-width on DEMO-0001; not a real concession",
+      "evidenceResourceIds": []
+    },
+    {
+      "id": "right-approval-fai",
+      "actorId": "actual-quality",
+      "organizationId": "actual-company",
+      "role": "quality-authority",
+      "approvedAt": "2026-10-02T17:00:00-04:00",
+      "statement": "Synthetic approval of the accountability example only; not AS9102 certification",
+      "evidenceResourceIds": []
+    }
+  ]
+}

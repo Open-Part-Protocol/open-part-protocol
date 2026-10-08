@@ -1,0 +1,138 @@
+{
+  "format": "OPP",
+  "formatVersion": "0.1.0-draft.1",
+  "packageId": "urn:uuid:e54da1c1-9dc5-580d-9d96-6cbd1135f64d",
+  "packageType": "as-built",
+  "createdAt": "2026-10-02T18:00:00-04:00",
+  "generator": {
+    "name": "OPP synthetic example builder",
+    "version": "0.1.0-draft.1"
+  },
+  "designResourceId": "res-design",
+  "bindingsResourceId": "res-bindings",
+  "profiles": [
+    {
+      "id": "opp.core",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.geometry.step-part21",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.dimensions",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.gdt.asme",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.requirements",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.as-built",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.scan",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.fai",
+      "version": "0.1.0-draft.1",
+      "required": true
+    }
+  ],
+  "resources": [
+    {
+      "id": "res-design",
+      "path": "design/design.json",
+      "mediaType": "application/json",
+      "role": "design",
+      "size": 21304,
+      "sha256": "3c5c9e19986204ed0e422c5e7d1b0080f86ba489ba8bc5127f943d579e4b5332"
+    },
+    {
+      "id": "res-bindings",
+      "path": "design/bindings.json",
+      "mediaType": "application/json",
+      "role": "bindings",
+      "size": 2426,
+      "sha256": "154f78ce0f595c639bf0ab7a52e6c59324bf55a1ed65fb4da8b920f2eac5c43c"
+    },
+    {
+      "id": "res-block-step",
+      "path": "geometry/block.step",
+      "mediaType": "model/step",
+      "role": "nominal-geometry",
+      "size": 5812,
+      "sha256": "2dae9f78a9c3cc6f3a64a2ad337c2f35d9449b2c19baf14f639f9eeb978765c9"
+    },
+    {
+      "id": "res-proof-procedure",
+      "path": "documents/proof-procedure.txt",
+      "mediaType": "text/plain",
+      "role": "document",
+      "size": 267,
+      "sha256": "495de99eb5f446e240030ee1fd661dd1ad9b01250c091facca0e031806fc52e6"
+    },
+    {
+      "id": "res-actual",
+      "path": "actual/as-built.json",
+      "mediaType": "application/json",
+      "role": "as-built",
+      "size": 42058,
+      "sha256": "ec8e7cdc39a84f4c630d9588e24d23caec838cc714b046eb3a3a01b4fdf03be1"
+    },
+    {
+      "id": "res-scan",
+      "path": "evidence/scan.ply",
+      "mediaType": "application/octet-stream",
+      "role": "evidence",
+      "size": 344,
+      "sha256": "69cf6cc291615a2903014a88bca0b2d68c805963daaf3f070881dd234d3c057f"
+    },
+    {
+      "id": "res-test",
+      "path": "evidence/test.csv",
+      "mediaType": "text/csv",
+      "role": "evidence",
+      "size": 51,
+      "sha256": "a635f0fde15be4d340037b5d1a4e32ae021bd7b7de09434192a18c3f1967de06"
+    },
+    {
+      "id": "res-calibration",
+      "path": "evidence/calibration.txt",
+      "mediaType": "text/plain",
+      "role": "evidence",
+      "size": 186,
+      "sha256": "2103a4bcd8bf283a7d42b24135a92fae77d259bee2365b9ebbd0bcfd9e751bad"
+    },
+    {
+      "id": "res-material-certificate",
+      "path": "evidence/material-certificate.txt",
+      "mediaType": "text/plain",
+      "role": "evidence",
+      "size": 134,
+      "sha256": "9db004d1283511454c0063b46cb6cdfa251797bd63470936a649efd9386923d6"
+    },
+    {
+      "id": "res-scan-left",
+      "path": "evidence/left-scan.ply",
+      "mediaType": "application/octet-stream",
+      "role": "evidence",
+      "size": 344,
+      "sha256": "7fc800304bf46b511e0dce8595b6204410740ef3791d9c59bdeab9aaedfaa0be"
+    }
+  ],
+  "asBuiltResourceId": "res-actual"
+}

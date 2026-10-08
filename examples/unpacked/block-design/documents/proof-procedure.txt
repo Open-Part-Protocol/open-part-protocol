@@ -1,0 +1,2 @@
+SYNTHETIC OPP EXAMPLE PROCEDURE v1
+Apply compression from 0 to 1000 N at 20 Cel in a fixture and record displacement. The reported scalar is displacement at 1000 N; test.csv columns are force_N and deflection_mm. This is illustrative data, not a qualified procedure.

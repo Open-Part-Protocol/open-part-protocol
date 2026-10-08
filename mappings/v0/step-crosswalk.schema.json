@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:opp:mapping:0.1.0-draft.1:step-crosswalk",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "status",
+    "pathNotation",
+    "sourceRegister",
+    "mappings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1.0-draft.1"
+    },
+    "status": {
+      "const": "working-draft"
+    },
+    "pathNotation": {
+      "type": "string"
+    },
+    "sourceRegister": {
+      "type": "string"
+    },
+    "mappings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "oppModelPaths",
+          "applicationProtocols",
+          "sourceEntityFamilies",
+          "mappingRule",
+          "lossConditions",
+          "evidence",
+          "maturity",
+          "implementation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^step\\.[a-z0-9-]+$"
+          },
+          "oppModelPaths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "applicationProtocols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "sourceEntityFamilies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9_]*$"
+            }
+          },
+          "mappingRule": {
+            "type": "string"
+          },
+          "lossConditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "sourceId",
+                "section"
+              ],
+              "properties": {
+                "sourceId": {
+                  "type": "string"
+                },
+                "section": {
+                  "type": "string"
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "maturity": {
+            "enum": [
+              "documented-chain",
+              "candidate",
+              "no-v0-mapping"
+            ]
+          },
+          "implementation": {
+            "const": "not-implemented"
+          }
+        }
+      }
+    }
+  }
+}

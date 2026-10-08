@@ -1,0 +1,2 @@
+SYNTHETIC CALIBRATION CERTIFICATE
+No actual traceability or accredited calibration is asserted. The metadata illustrates equipment identity, date, validity, and uncertainty fields only.

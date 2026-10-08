@@ -1,0 +1,16 @@
+ply
+format ascii 1.0
+comment Synthetic sparse scan; coordinates in mm; not evidence of full surface coverage
+element vertex 8
+property float x
+property float y
+property float z
+end_header
+0.001 0.000 0.001
+40.010 0.000 0.001
+40.010 20.002 0.001
+0.001 20.002 0.001
+0.001 0.000 10.002
+40.010 0.000 10.002
+40.010 20.002 10.002
+0.001 20.002 10.002

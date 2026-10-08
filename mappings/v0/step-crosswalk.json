@@ -1,0 +1,906 @@
+{
+  "schemaVersion": "0.1.0-draft.1",
+  "status": "working-draft",
+  "pathNotation": "Human-readable model selectors; not executable JSON Pointers or EXPRESS mappings",
+  "sourceRegister": "docs/interoperability/sources.md",
+  "mappings": [
+    {
+      "id": "step.identity",
+      "oppModelPaths": [
+        "Design.productDefinitions"
+      ],
+      "applicationProtocols": [
+        "AP203",
+        "AP214",
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "PRODUCT",
+        "PRODUCT_DEFINITION"
+      ],
+      "mappingRule": "Preserve external product identity and resolve definition context.",
+      "lossConditions": [
+        "Product names are not globally unique; sender namespace is required."
+      ],
+      "evidence": [
+        {
+          "sourceId": "occt-step",
+          "section": "Assembly structure"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.revision",
+      "oppModelPaths": [
+        "ProductDefinition.revision"
+      ],
+      "applicationProtocols": [
+        "AP203",
+        "AP214",
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "PRODUCT_DEFINITION_FORMATION",
+        "PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE"
+      ],
+      "mappingRule": "Use formation/revision context; preserve original identifiers.",
+      "lossConditions": [
+        "Do not substitute product_definition.id without context."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "9.3.2"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.exact-geometry",
+      "oppModelPaths": [
+        "Design.representations",
+        "Manifest.resources"
+      ],
+      "applicationProtocols": [
+        "AP203",
+        "AP214",
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "PRODUCT_DEFINITION_SHAPE",
+        "SHAPE_DEFINITION_REPRESENTATION",
+        "ADVANCED_BREP_SHAPE_REPRESENTATION",
+        "MANIFOLD_SOLID_BREP"
+      ],
+      "mappingRule": "Retain exact bytes and product-to-shape relationship; expose nominal role.",
+      "lossConditions": [
+        "Healed topology needs source map; unsupported geometry must remain source."
+      ],
+      "evidence": [
+        {
+          "sourceId": "occt-step",
+          "section": "Models / Topological entities"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.units",
+      "oppModelPaths": [
+        "CoordinateFrame.unit",
+        "Quantity",
+        "Transform.translationUnit"
+      ],
+      "applicationProtocols": [
+        "AP203",
+        "AP214",
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "GLOBAL_UNIT_ASSIGNED_CONTEXT",
+        "SI_UNIT",
+        "CONVERSION_BASED_UNIT",
+        "MEASURE_WITH_UNIT"
+      ],
+      "mappingRule": "Resolve scale/dimension before serializing explicit OPP units.",
+      "lossConditions": [
+        "Affine temperatures, unsupported unit vocabulary, and uncertainty need explicit handling."
+      ],
+      "evidence": [
+        {
+          "sourceId": "occt-step",
+          "section": "STEP units"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.state",
+      "oppModelPaths": [
+        "Design.states",
+        "Representation.stateId"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "PRODUCT_DEFINITION_CONTEXT",
+        "PROPERTY_DEFINITION"
+      ],
+      "mappingRule": "Resolve declared state semantics; require review when no exact source state exists.",
+      "lossConditions": [
+        "Do not infer coated/free/formed state solely from representation names."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-current",
+          "section": "Alternative Shapes v1.0"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.assembly-occurrence",
+      "oppModelPaths": [
+        "Design.occurrences"
+      ],
+      "applicationProtocols": [
+        "AP203",
+        "AP214",
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "NEXT_ASSEMBLY_USAGE_OCCURRENCE"
+      ],
+      "mappingRule": "Map reusable definitions to distinct placements and preserve usage identity.",
+      "lossConditions": [
+        "Unresolved variants or external child definitions prevent resolved closure."
+      ],
+      "evidence": [
+        {
+          "sourceId": "occt-step",
+          "section": "Assembly structure"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.placement",
+      "oppModelPaths": [
+        "Occurrence.transform",
+        "CoordinateFrame"
+      ],
+      "applicationProtocols": [
+        "AP203",
+        "AP214",
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "CONTEXT_DEPENDENT_SHAPE_REPRESENTATION",
+        "SHAPE_REPRESENTATION_RELATIONSHIP_WITH_TRANSFORMATION",
+        "ITEM_DEFINED_TRANSFORMATION",
+        "MAPPED_ITEM"
+      ],
+      "mappingRule": "Normalize parent-from-child rigid transforms and source frame units.",
+      "lossConditions": [
+        "Reflection/scale is not an OPP rigid transform; conversion direction must be verified."
+      ],
+      "evidence": [
+        {
+          "sourceId": "occt-step",
+          "section": "Assembly structure"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.region-binding",
+      "oppModelPaths": [
+        "Region.bindingIds",
+        "Bindings.bindings"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "SHAPE_ASPECT",
+        "GEOMETRIC_ITEM_SPECIFIC_USAGE",
+        "ADVANCED_FACE"
+      ],
+      "mappingRule": "Preserve shape-aspect associations and emit hash-pinned entity selectors.",
+      "lossConditions": [
+        "Missing source entity map after healing is a binding failure."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "5.1; 6.1"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.multi-entity-feature",
+      "oppModelPaths": [
+        "Feature.regionIds",
+        "Binding.entities"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "COMPOSITE_GROUP_SHAPE_ASPECT",
+        "SHAPE_ASPECT_RELATIONSHIP",
+        "ITEM_IDENTIFIED_REPRESENTATION_USAGE"
+      ],
+      "mappingRule": "Preserve grouped feature/entity selection; distinguish pattern semantics.",
+      "lossConditions": [
+        "A group of elements and a pattern can require different engineering interpretation."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "6.4; 6.4.1"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.dimension-size",
+      "oppModelPaths": [
+        "Requirement[kind=dimension].spec"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "DIMENSIONAL_SIZE",
+        "DIMENSIONAL_CHARACTERISTIC_REPRESENTATION",
+        "SHAPE_DIMENSION_REPRESENTATION"
+      ],
+      "mappingRule": "Translate defined size characteristic, measure and geometry association.",
+      "lossConditions": [
+        "Preserve inside/outside and derived-feature conventions; unsupported size types require profile."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "5.1.5; 5.2"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.dimension-location",
+      "oppModelPaths": [
+        "DimensionSpec.relatedSubjects",
+        "DimensionSpec.direction"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "DIMENSIONAL_LOCATION",
+        "DIRECTED_DIMENSIONAL_LOCATION",
+        "DIMENSIONAL_LOCATION_WITH_PATH"
+      ],
+      "mappingRule": "Keep both related subjects, measurement path, convention and orientation.",
+      "lossConditions": [
+        "Unrepresented center/inner/outer conventions block complete semantic translation."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "5.1.1; 5.1.3; 5.1.4"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.dimension-angle",
+      "oppModelPaths": [
+        "DimensionSpec.characteristic",
+        "DimensionSpec.nominal"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "ANGULAR_LOCATION",
+        "ANGULAR_SIZE",
+        "PLANE_ANGLE_MEASURE_WITH_UNIT"
+      ],
+      "mappingRule": "Translate angle value and selected small/large/reflex convention through supported profile.",
+      "lossConditions": [
+        "Core V0 lacks all angle-selection qualifiers; preserve unsupported cases explicitly."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "5.1.2; 5.1.6"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.dimension-offsets",
+      "oppModelPaths": [
+        "DimensionSpec.nominal",
+        "DimensionSpec.limits"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "PLUS_MINUS_TOLERANCE",
+        "TOLERANCE_VALUE",
+        "MEASURE_WITH_UNIT"
+      ],
+      "mappingRule": "absoluteLower = nominal + lowerOffset; absoluteUpper = nominal + upperOffset after compatible-unit conversion.",
+      "lossConditions": [
+        "Both offsets may be positive or negative; rounding must not change absolute bounds."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "5.2.3"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.dimension-range",
+      "oppModelPaths": [
+        "DimensionSpec.nominal",
+        "DimensionSpec.limits"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "SHAPE_DIMENSION_REPRESENTATION",
+        "MEASURE_REPRESENTATION_ITEM"
+      ],
+      "mappingRule": "Use named nominal value, lower limit and upper limit; these bounds are absolute.",
+      "lossConditions": [
+        "Do not treat absolute limits as deviations from nominal."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "5.2.4"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.dimension-display",
+      "oppModelPaths": [
+        "DimensionSpec.displayDecimals"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "VALUE_FORMAT_TYPE_QUALIFIER",
+        "MEASURE_QUALIFICATION"
+      ],
+      "mappingRule": "Preserve display precision separately from acceptance.",
+      "lossConditions": [
+        "Original notation may need preserved presentation; digits do not imply limits."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "5.2.1; 5.2.3"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.dimension-basic-reference",
+      "oppModelPaths": [
+        "DimensionSpec.mode"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "TYPE_QUALIFIER",
+        "QUALIFIED_REPRESENTATION_ITEM"
+      ],
+      "mappingRule": "Review qualifier context and distinguish theoretical/basic/reference semantics.",
+      "lossConditions": [
+        "Exact qualifier strings and editions need fixture validation; do not infer from glyph boxes."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "5.2.2"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.limits-and-fits",
+      "oppModelPaths": [
+        "Requirement.extensions",
+        "Requirement[kind=unresolved-text]"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "LIMITS_AND_FITS"
+      ],
+      "mappingRule": "Preserve designation and source until an edition-specific fit profile resolves it.",
+      "lossConditions": [
+        "Numeric tables/shaft-hole conventions are not implemented in V0."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "5.2.5"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.gdt-characteristic",
+      "oppModelPaths": [
+        "GdtSpec.segments"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "GEOMETRIC_TOLERANCE",
+        "FLATNESS_TOLERANCE",
+        "POSITION_TOLERANCE"
+      ],
+      "mappingRule": "Translate characteristic and magnitude with exact controlled subject.",
+      "lossConditions": [
+        "Not all subtype/zone combinations are implemented."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "6.1; 6.7"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.gdt-modifiers",
+      "oppModelPaths": [
+        "GdtSegment.modifiers",
+        "GdtSegment.maximumTolerance"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "GEOMETRIC_TOLERANCE_WITH_MODIFIERS",
+        "GEOMETRIC_TOLERANCE_WITH_MAXIMUM_TOLERANCE",
+        "MODIFIED_GEOMETRIC_TOLERANCE"
+      ],
+      "mappingRule": "Preserve material and other modifiers under declared interpretation.",
+      "lossConditions": [
+        "ASME/ISO rules are not interchangeable; unsupported modifier needs required profile."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "6.9.3; 6.9.5"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.gdt-zones",
+      "oppModelPaths": [
+        "GdtSegment.zone",
+        "GdtSegment.zoneOffset",
+        "GdtSegment.projectedLength"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "TOLERANCE_ZONE",
+        "PROJECTED_ZONE_DEFINITION",
+        "UNEQUALLY_DISPOSED_GEOMETRIC_TOLERANCE"
+      ],
+      "mappingRule": "Translate zone shape/location/extent only when exact meaning is supported.",
+      "lossConditions": [
+        "Complex/profile/runout zone encodings need additional fields/profiles."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "6.9.2"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.gdt-composite",
+      "oppModelPaths": [
+        "GdtSpec.relationship",
+        "GdtSpec.segments"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "GEOMETRIC_TOLERANCE_RELATIONSHIP"
+      ],
+      "mappingRule": "Preserve explicit segment relationship and declared ordering.",
+      "lossConditions": [
+        "Do not flatten compound/composite/simultaneous requirements into independent rows."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "6.9"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.datum-feature",
+      "oppModelPaths": [
+        "Design.datums",
+        "Datum.featureIds"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "DATUM",
+        "DATUM_FEATURE",
+        "SHAPE_ASPECT_RELATIONSHIP",
+        "ITEM_IDENTIFIED_REPRESENTATION_USAGE"
+      ],
+      "mappingRule": "Map label to exact datum features and source geometry.",
+      "lossConditions": [
+        "Datum plane alone does not identify the physical datum feature."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "6.5"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.datum-target",
+      "oppModelPaths": [
+        "Datum.targetRegions",
+        "Region"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "DATUM_TARGET",
+        "PLACED_DATUM_TARGET_FEATURE"
+      ],
+      "mappingRule": "Preserve target geometry, placement and target meaning through an exact target profile.",
+      "lossConditions": [
+        "Point/line/area constraints and degrees of freedom need specialist validation."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "6.6"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.datum-system",
+      "oppModelPaths": [
+        "DatumSystem.compartments"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "DATUM_SYSTEM",
+        "DATUM_REFERENCE_COMPARTMENT",
+        "DATUM_REFERENCE_ELEMENT"
+      ],
+      "mappingRule": "Retain ordered compartments, common-datum groups, and reference modifiers.",
+      "lossConditions": [
+        "A-B-C differs from A-C-B and from modified B; ordering is normative."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "6.9.7; 6.9.8"
+        }
+      ],
+      "maturity": "documented-chain",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.graphic-pmi",
+      "oppModelPaths": [
+        "Presentation",
+        "Manifest.resources[role=source]"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "DRAUGHTING_CALLOUT",
+        "ANNOTATION_OCCURRENCE",
+        "ANNOTATION_PLANE"
+      ],
+      "mappingRule": "Preserve graphics separately; link to translated semantics when source provides association.",
+      "lossConditions": [
+        "Graphic-only dimensions are not machine-interpretable requirements."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-pmi-4.1",
+          "section": "7; 8; 9"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.saved-views",
+      "oppModelPaths": [
+        "Presentation.views"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "CAMERA_MODEL_D3",
+        "DRAUGHTING_MODEL"
+      ],
+      "mappingRule": "Translate camera and selected display scope; preserve unsupported clipping.",
+      "lossConditions": [
+        "Full camera frusta/styling/clipping are not modeled by core V0."
+      ],
+      "evidence": [
+        {
+          "sourceId": "occt-step",
+          "section": "Saved views"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.validation-properties",
+      "oppModelPaths": [
+        "Representation.validationProperties"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "PROPERTY_DEFINITION",
+        "PROPERTY_DEFINITION_REPRESENTATION",
+        "MEASURE_REPRESENTATION_ITEM"
+      ],
+      "mappingRule": "Preserve original area/volume/centroid and comparison tolerances.",
+      "lossConditions": [
+        "Validation properties are checks, not alternate nominal geometry."
+      ],
+      "evidence": [
+        {
+          "sourceId": "nist-sfa",
+          "section": "source/sfa-valprop.tcl"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.material-identity",
+      "oppModelPaths": [
+        "Design.materials",
+        "MaterialSpec"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "MATERIAL_DESIGNATION",
+        "PROPERTY_DEFINITION",
+        "DESCRIPTIVE_REPRESENTATION_ITEM"
+      ],
+      "mappingRule": "Preserve explicitly designated material identity/condition and density where supported.",
+      "lossConditions": [
+        "A CAD display material does not establish manufacturing grade/temper or substitutions."
+      ],
+      "evidence": [
+        {
+          "sourceId": "occt-step",
+          "section": "Materials"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.surface-texture",
+      "oppModelPaths": [
+        "TextureSpec",
+        "Requirement[kind=unresolved-text]"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [],
+      "mappingRule": "Map only after a dedicated exact-parameter/evaluation profile; otherwise preserve source.",
+      "lossConditions": [
+        "No V0 edition-specific surface-texture STEP adapter is defined."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-current",
+          "section": "PMI and user-defined-attribute practice coverage"
+        }
+      ],
+      "maturity": "no-v0-mapping",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.process-coating-heat-treatment",
+      "oppModelPaths": [
+        "ProcessConstraintSpec",
+        "CoatingSpec",
+        "HeatTreatmentSpec"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "PROPERTY_DEFINITION",
+        "PROPERTY_DEFINITION_REPRESENTATION"
+      ],
+      "mappingRule": "Candidate property normalization requires exact vocabulary, region/state and specification evidence.",
+      "lossConditions": [
+        "Arbitrary property strings are insufficient for a universal engineering requirement."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-current",
+          "section": "User Defined Attributes v1.8"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.approval-organization",
+      "oppModelPaths": [
+        "Design.actors",
+        "Design.approvals"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [
+        "APPLIED_APPROVAL_ASSIGNMENT",
+        "PERSON_AND_ORGANIZATION",
+        "ORGANIZATION"
+      ],
+      "mappingRule": "Preserve reported author/approval identity only with exact assignment scope.",
+      "lossConditions": [
+        "Authentication/authority is not established by copied metadata."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-current",
+          "section": "PDM Schema Usage Guide"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.persistent-identifiers",
+      "oppModelPaths": [
+        "ExternalIdentifier",
+        "Requirement.id"
+      ],
+      "applicationProtocols": [
+        "AP242"
+      ],
+      "sourceEntityFamilies": [],
+      "mappingRule": "Preserve source persistent IDs using an explicit adapter for the exact AP242/QIF practice version.",
+      "lossConditions": [
+        "No filename-derived ID may replace known original characteristic identity."
+      ],
+      "evidence": [
+        {
+          "sourceId": "cax-qif-cross-domain-1.0",
+          "section": "5.2; 5.4"
+        }
+      ],
+      "maturity": "candidate",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.physical-results",
+      "oppModelPaths": [
+        "AsBuilt.subjects",
+        "AsBuilt.observations",
+        "AsBuilt.evaluations"
+      ],
+      "applicationProtocols": [
+        "AP239",
+        "AP242"
+      ],
+      "sourceEntityFamilies": [],
+      "mappingRule": "Use a future QIF/AP239 adapter and retained evidence; no manufacturing actuals are inferred from nominal STEP.",
+      "lossConditions": [
+        "Design geometry is not a measured result; AP242 PMI is not a FAIR."
+      ],
+      "evidence": [
+        {
+          "sourceId": "qif",
+          "section": "Model/plans/resources/results/statistics"
+        }
+      ],
+      "maturity": "no-v0-mapping",
+      "implementation": "not-implemented"
+    },
+    {
+      "id": "step.analysis-and-process-evidence",
+      "oppModelPaths": [
+        "Manifest.resources[role=evidence]"
+      ],
+      "applicationProtocols": [
+        "AP209",
+        "AP238"
+      ],
+      "sourceEntityFamilies": [],
+      "mappingRule": "Preserve AP209/AP238 payloads as evidence/source until a specialized profile exists.",
+      "lossConditions": [
+        "No numerical field/toolpath semantics are translated by the V0 checker."
+      ],
+      "evidence": [
+        {
+          "sourceId": "nist-sfa-service",
+          "section": "Uses"
+        }
+      ],
+      "maturity": "no-v0-mapping",
+      "implementation": "not-implemented"
+    }
+  ]
+}

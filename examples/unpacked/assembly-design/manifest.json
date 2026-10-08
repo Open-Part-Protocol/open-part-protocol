@@ -1,0 +1,74 @@
+{
+  "format": "OPP",
+  "formatVersion": "0.1.0-draft.1",
+  "packageId": "urn:uuid:6806117a-96c7-5e63-9ab0-9c2512d27d1a",
+  "packageType": "design",
+  "createdAt": "2026-10-02T18:00:00-04:00",
+  "generator": {
+    "name": "OPP synthetic example builder",
+    "version": "0.1.0-draft.1"
+  },
+  "designResourceId": "res-design",
+  "bindingsResourceId": "res-bindings",
+  "profiles": [
+    {
+      "id": "opp.core",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.geometry.step-part21",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.dimensions",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.gdt.asme",
+      "version": "0.1.0-draft.1",
+      "required": true
+    },
+    {
+      "id": "opp.requirements",
+      "version": "0.1.0-draft.1",
+      "required": true
+    }
+  ],
+  "resources": [
+    {
+      "id": "res-design",
+      "path": "design/design.json",
+      "mediaType": "application/json",
+      "role": "design",
+      "size": 21304,
+      "sha256": "3c5c9e19986204ed0e422c5e7d1b0080f86ba489ba8bc5127f943d579e4b5332"
+    },
+    {
+      "id": "res-bindings",
+      "path": "design/bindings.json",
+      "mediaType": "application/json",
+      "role": "bindings",
+      "size": 2426,
+      "sha256": "154f78ce0f595c639bf0ab7a52e6c59324bf55a1ed65fb4da8b920f2eac5c43c"
+    },
+    {
+      "id": "res-block-step",
+      "path": "geometry/block.step",
+      "mediaType": "model/step",
+      "role": "nominal-geometry",
+      "size": 5812,
+      "sha256": "2dae9f78a9c3cc6f3a64a2ad337c2f35d9449b2c19baf14f639f9eeb978765c9"
+    },
+    {
+      "id": "res-proof-procedure",
+      "path": "documents/proof-procedure.txt",
+      "mediaType": "text/plain",
+      "role": "document",
+      "size": 267,
+      "sha256": "495de99eb5f446e240030ee1fd661dd1ad9b01250c091facca0e031806fc52e6"
+    }
+  ]
+}

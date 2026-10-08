@@ -1,0 +1,21 @@
+name: Specification proposal or defect
+description: Propose engineering semantics or report an ambiguity in the OPP draft.
+title: "[Spec] "
+body:
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Exchange scenario and engineering intent
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change or current ambiguity
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Example, source standard/edition, and conformance evidence
+

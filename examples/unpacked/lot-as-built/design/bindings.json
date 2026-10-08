@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "0.1.0-draft.1",
+  "designId": "design-block-a",
+  "bindings": [
+    {
+      "id": "bind-bottom",
+      "regionId": "region-bottom",
+      "representationId": "rep-block",
+      "resourceId": "res-block-step",
+      "resourceSha256": "2dae9f78a9c3cc6f3a64a2ad337c2f35d9449b2c19baf14f639f9eeb978765c9",
+      "encoding": "step-part21",
+      "entities": [
+        {
+          "label": "#56",
+          "entityType": "ADVANCED_FACE"
+        }
+      ]
+    },
+    {
+      "id": "bind-top",
+      "regionId": "region-top",
+      "representationId": "rep-block",
+      "resourceId": "res-block-step",
+      "resourceSha256": "2dae9f78a9c3cc6f3a64a2ad337c2f35d9449b2c19baf14f639f9eeb978765c9",
+      "encoding": "step-part21",
+      "entities": [
+        {
+          "label": "#83",
+          "entityType": "ADVANCED_FACE"
+        }
+      ]
+    },
+    {
+      "id": "bind-x-min",
+      "regionId": "region-x-min",
+      "representationId": "rep-block",
+      "resourceId": "res-block-step",
+      "resourceSha256": "2dae9f78a9c3cc6f3a64a2ad337c2f35d9449b2c19baf14f639f9eeb978765c9",
+      "encoding": "step-part21",
+      "entities": [
+        {
+          "label": "#102",
+          "entityType": "ADVANCED_FACE"
+        }
+      ]
+    },
+    {
+      "id": "bind-x-max",
+      "regionId": "region-x-max",
+      "representationId": "rep-block",
+      "resourceId": "res-block-step",
+      "resourceSha256": "2dae9f78a9c3cc6f3a64a2ad337c2f35d9449b2c19baf14f639f9eeb978765c9",
+      "encoding": "step-part21",
+      "entities": [
+        {
+          "label": "#121",
+          "entityType": "ADVANCED_FACE"
+        }
+      ]
+    },
+    {
+      "id": "bind-y-min",
+      "regionId": "region-y-min",
+      "representationId": "rep-block",
+      "resourceId": "res-block-step",
+      "resourceSha256": "2dae9f78a9c3cc6f3a64a2ad337c2f35d9449b2c19baf14f639f9eeb978765c9",
+      "encoding": "step-part21",
+      "entities": [
+        {
+          "label": "#132",
+          "entityType": "ADVANCED_FACE"
+        }
+      ]
+    },
+    {
+      "id": "bind-y-max",
+      "regionId": "region-y-max",
+      "representationId": "rep-block",
+      "resourceId": "res-block-step",
+      "resourceSha256": "2dae9f78a9c3cc6f3a64a2ad337c2f35d9449b2c19baf14f639f9eeb978765c9",
+      "encoding": "step-part21",
+      "entities": [
+        {
+          "label": "#143",
+          "entityType": "ADVANCED_FACE"
+        }
+      ]
+    }
+  ]
+}

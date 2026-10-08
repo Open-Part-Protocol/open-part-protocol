@@ -1,0 +1,740 @@
+{
+  "schemaVersion": "0.1.0-draft.1",
+  "id": "design-block-a",
+  "rootDefinitionId": "def-block-a",
+  "release": {
+    "status": "review",
+    "engineeringCompleteness": "incomplete",
+    "approvalIds": [],
+    "unresolvedItems": [
+      "Illustrative fixture; not a production release",
+      "GD&T interpretation and exact STEP geometry need independent validation",
+      "Recipient-supplied ASME interpretation dependency is not bundled"
+    ]
+  },
+  "productDefinitions": [
+    {
+      "id": "def-block-a",
+      "namespace": "https://example.org/opp/synthetic",
+      "partNumber": "DEMO-BLOCK",
+      "revision": "A",
+      "name": "Synthetic machined block",
+      "description": "40 x 20 x 10 mm example; all design and production information is synthetic",
+      "kind": "part",
+      "supply": "manufactured"
+    }
+  ],
+  "states": [
+    {
+      "id": "state-block-finished",
+      "productDefinitionId": "def-block-a",
+      "name": "Finished uncoated, free state",
+      "kind": "finished",
+      "conditions": [
+        {
+          "name": "temperature",
+          "quantity": {
+            "value": "20",
+            "unit": "Cel"
+          }
+        }
+      ]
+    }
+  ],
+  "coordinateFrames": [
+    {
+      "id": "frame-block",
+      "productDefinitionId": "def-block-a",
+      "name": "Block origin at lower left rear corner",
+      "unit": "mm"
+    }
+  ],
+  "representations": [
+    {
+      "id": "rep-block",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "resourceId": "res-block-step",
+      "frameId": "frame-block",
+      "role": "nominal-exact",
+      "encoding": "step-part21",
+      "applicationProtocol": "AP203",
+      "schemaIdentifier": "CONFIG_CONTROL_DESIGN",
+      "edition": "1994",
+      "validationProperties": [
+        {
+          "name": "volume",
+          "quantity": {
+            "value": "8000",
+            "unit": "mm3"
+          },
+          "tolerance": {
+            "value": "0.001",
+            "unit": "mm3"
+          }
+        },
+        {
+          "name": "area",
+          "quantity": {
+            "value": "2800",
+            "unit": "mm2"
+          },
+          "tolerance": {
+            "value": "0.001",
+            "unit": "mm2"
+          }
+        }
+      ]
+    }
+  ],
+  "regions": [
+    {
+      "id": "region-bottom",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "representationId": "rep-block",
+      "name": "bottom face",
+      "kind": "entity-set",
+      "bindingIds": [
+        "bind-bottom"
+      ]
+    },
+    {
+      "id": "region-top",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "representationId": "rep-block",
+      "name": "top face",
+      "kind": "entity-set",
+      "bindingIds": [
+        "bind-top"
+      ]
+    },
+    {
+      "id": "region-x-min",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "representationId": "rep-block",
+      "name": "x-min face",
+      "kind": "entity-set",
+      "bindingIds": [
+        "bind-x-min"
+      ]
+    },
+    {
+      "id": "region-x-max",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "representationId": "rep-block",
+      "name": "x-max face",
+      "kind": "entity-set",
+      "bindingIds": [
+        "bind-x-max"
+      ]
+    },
+    {
+      "id": "region-y-min",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "representationId": "rep-block",
+      "name": "y-min face",
+      "kind": "entity-set",
+      "bindingIds": [
+        "bind-y-min"
+      ]
+    },
+    {
+      "id": "region-y-max",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "representationId": "rep-block",
+      "name": "y-max face",
+      "kind": "entity-set",
+      "bindingIds": [
+        "bind-y-max"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "feature-length",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "name": "length",
+      "kind": "plane-pair",
+      "regionIds": [
+        "region-x-min",
+        "region-x-max"
+      ]
+    },
+    {
+      "id": "feature-width",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "name": "width",
+      "kind": "plane-pair",
+      "regionIds": [
+        "region-y-min",
+        "region-y-max"
+      ]
+    },
+    {
+      "id": "feature-height",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "name": "height",
+      "kind": "plane-pair",
+      "regionIds": [
+        "region-bottom",
+        "region-top"
+      ]
+    },
+    {
+      "id": "feature-top",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "name": "top",
+      "kind": "surface",
+      "regionIds": [
+        "region-top"
+      ]
+    },
+    {
+      "id": "feature-bottom",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "name": "bottom",
+      "kind": "surface",
+      "regionIds": [
+        "region-bottom"
+      ]
+    }
+  ],
+  "occurrences": [],
+  "connections": [],
+  "materials": [
+    {
+      "id": "material-aluminum",
+      "name": "Aluminum 6061-T6 (illustrative designation)",
+      "family": "metal",
+      "grade": "6061",
+      "condition": "T6",
+      "productForm": "plate",
+      "specificationDocumentIds": []
+    }
+  ],
+  "datums": [
+    {
+      "id": "datum-a",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "label": "A",
+      "featureIds": [
+        "feature-bottom"
+      ]
+    }
+  ],
+  "datumSystems": [
+    {
+      "id": "datum-system-a",
+      "productDefinitionId": "def-block-a",
+      "stateId": "state-block-finished",
+      "compartments": [
+        {
+          "datumIds": [
+            "datum-a"
+          ],
+          "modifiers": []
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "req-length",
+      "kind": "dimension",
+      "name": "Length",
+      "subjects": [
+        {
+          "productDefinitionId": "def-block-a",
+          "featureId": "feature-length"
+        }
+      ],
+      "stateId": "state-block-finished",
+      "interpretationId": "interp-explicit",
+      "criticality": "normal",
+      "characteristicNumber": "1",
+      "spec": {
+        "characteristic": "length",
+        "mode": "toleranced",
+        "nominal": {
+          "value": "40.000",
+          "unit": "mm"
+        },
+        "limits": {
+          "unit": "mm",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "39.950",
+          "upper": "40.050"
+        },
+        "displayDecimals": 3
+      },
+      "verificationId": "verify-length",
+      "overridesRequirementIds": [],
+      "provenance": {
+        "method": "manual",
+        "recordedAt": "2026-10-01T08:00:00-04:00",
+        "reviewedByActorId": "design-engineer"
+      }
+    },
+    {
+      "id": "req-width",
+      "kind": "dimension",
+      "name": "Width",
+      "subjects": [
+        {
+          "productDefinitionId": "def-block-a",
+          "featureId": "feature-width"
+        }
+      ],
+      "stateId": "state-block-finished",
+      "interpretationId": "interp-explicit",
+      "criticality": "normal",
+      "characteristicNumber": "2",
+      "spec": {
+        "characteristic": "width",
+        "mode": "toleranced",
+        "nominal": {
+          "value": "20.000",
+          "unit": "mm"
+        },
+        "limits": {
+          "unit": "mm",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "19.950",
+          "upper": "20.050"
+        },
+        "displayDecimals": 3
+      },
+      "verificationId": "verify-width",
+      "overridesRequirementIds": [],
+      "provenance": {
+        "method": "manual",
+        "recordedAt": "2026-10-01T08:00:00-04:00",
+        "reviewedByActorId": "design-engineer"
+      }
+    },
+    {
+      "id": "req-height",
+      "kind": "dimension",
+      "name": "Height",
+      "subjects": [
+        {
+          "productDefinitionId": "def-block-a",
+          "featureId": "feature-height"
+        }
+      ],
+      "stateId": "state-block-finished",
+      "interpretationId": "interp-explicit",
+      "criticality": "normal",
+      "characteristicNumber": "3",
+      "spec": {
+        "characteristic": "height",
+        "mode": "toleranced",
+        "nominal": {
+          "value": "10.000",
+          "unit": "mm"
+        },
+        "limits": {
+          "unit": "mm",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "9.980",
+          "upper": "10.020"
+        },
+        "displayDecimals": 3
+      },
+      "verificationId": "verify-height",
+      "overridesRequirementIds": [],
+      "provenance": {
+        "method": "manual",
+        "recordedAt": "2026-10-01T08:00:00-04:00",
+        "reviewedByActorId": "design-engineer"
+      }
+    },
+    {
+      "id": "req-top-flatness",
+      "kind": "geometric-tolerance",
+      "name": "Top Flatness",
+      "subjects": [
+        {
+          "productDefinitionId": "def-block-a",
+          "featureId": "feature-top"
+        }
+      ],
+      "stateId": "state-block-finished",
+      "interpretationId": "interp-asme",
+      "criticality": "normal",
+      "characteristicNumber": "4",
+      "spec": {
+        "segments": [
+          {
+            "characteristic": "flatness",
+            "tolerance": {
+              "value": "0.010",
+              "unit": "mm"
+            },
+            "zone": "two-planes",
+            "modifiers": []
+          }
+        ],
+        "relationship": "independent"
+      },
+      "verificationId": "verify-top-flatness",
+      "overridesRequirementIds": [],
+      "provenance": {
+        "method": "manual",
+        "recordedAt": "2026-10-01T08:00:00-04:00",
+        "reviewedByActorId": "design-engineer"
+      }
+    },
+    {
+      "id": "req-top-texture",
+      "kind": "surface-texture",
+      "name": "Top Texture",
+      "subjects": [
+        {
+          "productDefinitionId": "def-block-a",
+          "featureId": "feature-top"
+        }
+      ],
+      "stateId": "state-block-finished",
+      "interpretationId": "interp-explicit",
+      "criticality": "normal",
+      "characteristicNumber": "5",
+      "spec": {
+        "parameter": "Ra",
+        "limits": {
+          "unit": "um",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "0",
+          "upper": "0.8"
+        },
+        "cutoff": {
+          "value": "0.8",
+          "unit": "mm"
+        },
+        "evaluationLength": {
+          "value": "4.0",
+          "unit": "mm"
+        },
+        "filter": "Declared illustrative Gaussian filter; specialist texture profile pending"
+      },
+      "verificationId": "verify-top-texture",
+      "overridesRequirementIds": [],
+      "provenance": {
+        "method": "manual",
+        "recordedAt": "2026-10-01T08:00:00-04:00",
+        "reviewedByActorId": "design-engineer"
+      }
+    },
+    {
+      "id": "req-material",
+      "kind": "material",
+      "name": "Material",
+      "subjects": [
+        {
+          "productDefinitionId": "def-block-a"
+        }
+      ],
+      "stateId": "state-block-finished",
+      "interpretationId": "interp-explicit",
+      "criticality": "normal",
+      "characteristicNumber": "6",
+      "spec": {
+        "materialDefinitionId": "material-aluminum",
+        "permittedAlternativeMaterialIds": [],
+        "substitutionRequiresApproval": true
+      },
+      "verificationId": "verify-material",
+      "overridesRequirementIds": [],
+      "provenance": {
+        "method": "manual",
+        "recordedAt": "2026-10-01T08:00:00-04:00",
+        "reviewedByActorId": "design-engineer"
+      }
+    },
+    {
+      "id": "req-marking",
+      "kind": "marking",
+      "name": "Marking",
+      "subjects": [
+        {
+          "productDefinitionId": "def-block-a",
+          "featureId": "feature-bottom"
+        }
+      ],
+      "stateId": "state-block-finished",
+      "interpretationId": "interp-explicit",
+      "criticality": "normal",
+      "characteristicNumber": "7",
+      "spec": {
+        "fields": [
+          "part-number",
+          "revision",
+          "serial-number"
+        ],
+        "method": "Engrave synthetic demonstration markings"
+      },
+      "verificationId": "verify-marking",
+      "overridesRequirementIds": [],
+      "provenance": {
+        "method": "manual",
+        "recordedAt": "2026-10-01T08:00:00-04:00",
+        "reviewedByActorId": "design-engineer"
+      }
+    },
+    {
+      "id": "req-proof-deflection",
+      "kind": "performance",
+      "name": "Proof Deflection",
+      "subjects": [
+        {
+          "productDefinitionId": "def-block-a"
+        }
+      ],
+      "stateId": "state-block-finished",
+      "interpretationId": "interp-explicit",
+      "criticality": "normal",
+      "characteristicNumber": "8",
+      "spec": {
+        "characteristic": "Compression fixture displacement under proof load",
+        "limits": {
+          "unit": "mm",
+          "lowerInclusive": true,
+          "upperInclusive": true,
+          "lower": "0",
+          "upper": "0.050"
+        },
+        "conditions": [
+          {
+            "name": "compressive load",
+            "quantity": {
+              "value": "1000",
+              "unit": "N"
+            }
+          },
+          {
+            "name": "temperature",
+            "quantity": {
+              "value": "20",
+              "unit": "Cel"
+            }
+          }
+        ],
+        "procedureDocumentId": "doc-proof-procedure"
+      },
+      "verificationId": "verify-proof-deflection",
+      "overridesRequirementIds": [],
+      "provenance": {
+        "method": "manual",
+        "recordedAt": "2026-10-01T08:00:00-04:00",
+        "reviewedByActorId": "design-engineer"
+      }
+    }
+  ],
+  "verifications": [
+    {
+      "id": "verify-length",
+      "requirementIds": [
+        "req-length"
+      ],
+      "method": "dimensional",
+      "decisionRuleId": "rule-simple",
+      "coverage": "first-article",
+      "requiredEquipmentKinds": [],
+      "conditions": [],
+      "maximumExpandedUncertainty": {
+        "value": "0.005",
+        "unit": "mm"
+      }
+    },
+    {
+      "id": "verify-width",
+      "requirementIds": [
+        "req-width"
+      ],
+      "method": "dimensional",
+      "decisionRuleId": "rule-simple",
+      "coverage": "first-article",
+      "requiredEquipmentKinds": [],
+      "conditions": [],
+      "maximumExpandedUncertainty": {
+        "value": "0.005",
+        "unit": "mm"
+      }
+    },
+    {
+      "id": "verify-height",
+      "requirementIds": [
+        "req-height"
+      ],
+      "method": "dimensional",
+      "decisionRuleId": "rule-simple",
+      "coverage": "first-article",
+      "requiredEquipmentKinds": [],
+      "conditions": [],
+      "maximumExpandedUncertainty": {
+        "value": "0.005",
+        "unit": "mm"
+      }
+    },
+    {
+      "id": "verify-top-flatness",
+      "requirementIds": [
+        "req-top-flatness"
+      ],
+      "method": "dimensional",
+      "decisionRuleId": "rule-manual",
+      "coverage": "first-article",
+      "requiredEquipmentKinds": [],
+      "conditions": []
+    },
+    {
+      "id": "verify-top-texture",
+      "requirementIds": [
+        "req-top-texture"
+      ],
+      "method": "dimensional",
+      "decisionRuleId": "rule-simple",
+      "coverage": "first-article",
+      "requiredEquipmentKinds": [],
+      "conditions": [],
+      "maximumExpandedUncertainty": {
+        "value": "0.1",
+        "unit": "um"
+      }
+    },
+    {
+      "id": "verify-material",
+      "requirementIds": [
+        "req-material"
+      ],
+      "method": "material-review",
+      "decisionRuleId": "rule-manual",
+      "coverage": "first-article",
+      "requiredEquipmentKinds": [],
+      "conditions": []
+    },
+    {
+      "id": "verify-marking",
+      "requirementIds": [
+        "req-marking"
+      ],
+      "method": "visual",
+      "decisionRuleId": "rule-manual",
+      "coverage": "first-article",
+      "requiredEquipmentKinds": [],
+      "conditions": []
+    },
+    {
+      "id": "verify-proof-deflection",
+      "requirementIds": [
+        "req-proof-deflection"
+      ],
+      "method": "performance-test",
+      "decisionRuleId": "rule-simple",
+      "coverage": "first-article",
+      "requiredEquipmentKinds": [],
+      "conditions": [],
+      "maximumExpandedUncertainty": {
+        "value": "0.005",
+        "unit": "mm"
+      },
+      "procedureDocumentId": "doc-proof-procedure"
+    }
+  ],
+  "decisionRules": [
+    {
+      "id": "rule-simple",
+      "name": "Explicit inclusive scalar limits",
+      "method": "simple-limits",
+      "description": "Compare unrounded actual scalar to the explicit inclusive design limits"
+    },
+    {
+      "id": "rule-manual",
+      "name": "Reported specialist review",
+      "method": "manual",
+      "description": "Manual interpretation/verification; checker cannot establish engineering truth"
+    }
+  ],
+  "documents": [
+    {
+      "id": "doc-asme-y145",
+      "title": "ASME Y14.5 interpretation reference",
+      "role": "normative",
+      "dependencyStatus": "recipient-supplied",
+      "standard": {
+        "publisher": "ASME",
+        "number": "Y14.5",
+        "edition": "2018"
+      }
+    },
+    {
+      "id": "doc-proof-procedure",
+      "title": "Synthetic proof load procedure",
+      "role": "procedure",
+      "dependencyStatus": "embedded",
+      "resourceId": "res-proof-procedure"
+    }
+  ],
+  "interpretations": [
+    {
+      "id": "interp-explicit",
+      "family": "opp-explicit",
+      "profileId": "opp.requirements",
+      "standardDocumentIds": [],
+      "description": "Explicit scalar bounds and manual material/marking review for this synthetic example"
+    },
+    {
+      "id": "interp-asme",
+      "family": "asme-gdt",
+      "profileId": "opp.gdt.asme",
+      "standardDocumentIds": [
+        "doc-asme-y145"
+      ],
+      "description": "Declared ASME Y14.5-2018; this draft checker does not implement the full interpretation"
+    }
+  ],
+  "actors": [
+    {
+      "id": "design-company",
+      "kind": "organization",
+      "name": "OPP Synthetic Design Organization"
+    },
+    {
+      "id": "design-engineer",
+      "kind": "person",
+      "name": "Synthetic Engineer",
+      "organizationId": "design-company"
+    }
+  ],
+  "approvals": [],
+  "resourcePins": [
+    {
+      "resourceId": "res-bindings",
+      "sha256": "be6d51c7e326a9bf0b96e0eefccd9c49b3db3ce6b9d16335e6df731108355461"
+    },
+    {
+      "resourceId": "res-block-step",
+      "sha256": "2dae9f78a9c3cc6f3a64a2ad337c2f35d9449b2c19baf14f639f9eeb978765c9"
+    },
+    {
+      "resourceId": "res-proof-procedure",
+      "sha256": "495de99eb5f446e240030ee1fd661dd1ad9b01250c091facca0e031806fc52e6"
+    }
+  ]
+}

@@ -1,8 +1,10 @@
-# First OPP viewer plan
+# OPP viewer implementation and next steps
 
-The viewer should help an engineer understand a design and review a physical realization from one local file. It must display engineering support gaps clearly and preserve the original evidence.
+The independent [OPP Viewer](https://github.com/Open-Part-Protocol/opp-viewer) is a native Rust application for Linux, Windows, and macOS. It helps an engineer understand a design and review a physical realization from one local file, with visible engineering support gaps and preserved original evidence.
 
-## Minimum useful product
+The initial prototype embeds this repository's `0.1.0-draft.1` schemas. It implements package checks, nested product/occurrence browsing, experimental STEP previews, registered ASCII PLY overlays, and requirements/production/equipment/evidence views. Its [support matrix](https://github.com/Open-Part-Protocol/opp-viewer/blob/main/docs/support.md) distinguishes recorded data review from engineering interpretation.
+
+## Target review capabilities
 
 1. Open a local `.opp`, verify inventory, and show part/assembly identity and exact revision.
 2. Browse the reusable assembly tree and select a specific occurrence path.
@@ -28,15 +30,19 @@ flowchart TD
   STEP --> SFA[NIST SFA comparison workflow]
 ```
 
-## SFA path
+## Native implementation
 
-A fork can reuse analysis and presentation infrastructure after the [source/dependency assessment](nist-sfa.md). First prove exact region highlighting and an offline run before extending the whole viewer. Use SFA output as an independent comparison of retained source PMI, not a second authority competing with OPP requirements.
+The viewer uses `eframe`/`egui`, a bounded offline Rust package reader, bundled schemas, and a replaceable pure Rust STEP adapter using Truck. Product placement and physical identity are resolved through OPP occurrence paths. Measured conformance and acceptance under a deviation remain separate.
 
-If dependency or platform constraints make a direct fork unsuitable, an OPP frontend can retain SFA as a comparison tool and use a replaceable STEP adapter. The semantic model and schema should not depend on a particular rendering engine.
+Exact face highlighting, comprehensive AP242 semantic conversion, and complete GD&T/FAIR certification are not implemented. Unsupported previews preserve metadata and report their limitations.
+
+## SFA reference
+
+The [source/dependency assessment](nist-sfa.md) remains useful for standards and migration comparisons. The unused fork is preserved in [opp-viewer-sfa-reference](https://github.com/Open-Part-Protocol/opp-viewer-sfa-reference). No SFA source or platform-specific runtime is included in the Rust viewer. Use SFA output as an independent comparison of retained source PMI. The semantic model and schema do not depend on a rendering engine.
 
 ## Public acceptance fixtures
 
 Test a simple part, repeated/nested subassemblies, optional purchased interface geometry, two states, multiple faces per feature, post-coating dimensions, datum order/modifiers, a failed measurement accepted by concession, invalid calibration, actual scans with different units, and unsupported normative annotations.
 
-The current repository implements the package model/checker and synthetic examples. It does not yet implement this interactive viewer or an SFA fork.
+This repository maintains the protocol model, checker, mappings, and synthetic fixtures. The interactive application and its platform builds live in the separate OPP Viewer repository. The list above includes capabilities still to be implemented; the viewer's published support matrix is the current implementation boundary.
 

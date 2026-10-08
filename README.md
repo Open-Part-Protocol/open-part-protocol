@@ -39,6 +39,7 @@ OPP owns the structured engineering meaning. STEP initially supplies exact geome
 - [Design model](docs/spec/v0/design.md) and [as-built model](docs/spec/v0/as-built.md).
 - [STEP mappings](docs/interoperability/step-mapping.md) and [NIST SFA assessment](docs/interoperability/nist-sfa.md).
 - [Schemas](schemas/v0/README.md), [examples](examples/README.md), and [roadmap](docs/project/roadmap.md).
+- [OPP Viewer](https://github.com/Open-Part-Protocol/opp-viewer) — the independent native Rust prototype for Linux, Windows, and macOS.
 
 ## Try the draft
 

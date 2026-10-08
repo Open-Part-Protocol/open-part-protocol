@@ -15,7 +15,9 @@ Package/identity/authority rules, design and actual schemas, typed requirement f
 
 ## Viewer baseline
 
-Inspect SFA dependency and redistribution terms; choose a pinned baseline; add OPP package/metadata panels, source-ID lookup, actual overlays, and capability/loss displays. Bundle viewer resources for offline use. Keep SFA's analysis as an independent migration comparison where practical.
+The independent [OPP Viewer](https://github.com/Open-Part-Protocol/opp-viewer) uses Rust for native Linux, Windows, and macOS review. Its initial implementation opens design/as-built packages, previews a supported STEP subset, expands nested OPP assemblies, overlays registered ASCII PLY scans, and reviews requirements, production, equipment, and evidence.
+
+Next steps are verified source-topology highlighting, more CAD export fixtures, representation/state selection, broader scan support, and explicit engineering-profile conformance coverage. Keep SFA as an independent standards/migration comparison where practical; it is not a viewer runtime dependency.
 
 ## Before a stable V1
 

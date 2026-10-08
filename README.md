@@ -4,8 +4,6 @@
 
 Open Part Protocol (OPP) is a proposed free, open, community-governed exchange standard for mechanical parts and assemblies. An `.opp` file combines exact geometry, readable engineering requirements, assembly structure, and supporting records in an offline package.
 
-The name is also a nod to Naughty by Nature's “O.P.P.”
-
 **Status: V0 working draft — `0.1.0-draft.1`, October 7, 2026.** This repository contains a proposed specification, JSON Schemas, examples, a package checker, and an interoperability plan. It is an engineering discussion baseline, not an approved standard or a production CAD converter.
 
 ## Two core record types
